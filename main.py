@@ -26,8 +26,9 @@ for i in os.walk(directory):
                         try:
                             shutil.move(os.path.join(directory_file, file), duplicate_folder)
                         except Exception:
-                            os.rename(os.path.join(directory_file, file), os.path.join(directory_file, f"{file}__{time.time()}"))
-                            shutil.move(os.path.join(directory_file, f"{file}__{time.time()}"), duplicate_folder)
+                            time_ = time.time()
+                            os.rename(os.path.join(directory_file, file), os.path.join(directory_file, f"{file}__{time_}"))
+                            shutil.move(os.path.join(directory_file, f"{file}__{time_}"), duplicate_folder)
 
                 else:
                     shutil.move(os.path.join(directory_file, file), extension_folder)
@@ -41,8 +42,9 @@ for i in os.walk(directory):
                     try:
                         shutil.move(os.path.join(directory_file, file), duplicate_folder)
                     except Exception:
-                        os.rename(os.path.join(directory_file, file), os.path.join(directory_file, f"{file}__{time.time()}"))
-                        shutil.move(os.path.join(directory_file, f"{file}__{time.time()}"), duplicate_folder)
+                        time_ = time.time()
+                        os.rename(os.path.join(directory_file, file), os.path.join(directory_file, f"{file}__{time_}"))
+                        shutil.move(os.path.join(directory_file, f"{file}__{time_}"), duplicate_folder)
             else:
                 shutil.move(os.path.join(directory_file, file), extension_folder)
             
