@@ -1,9 +1,15 @@
 import os, shutil
-from pathlib import Path
 import time
+from pathlib import Path
+from tkinter import filedialog
+from tkinter import *
+
+
+root = Tk()
+root.withdraw()
 
 storage_directory = os.path.join(Path.home(), 'Documents')
-directory = input('Enter path')
+directory = filedialog.askdirectory()
 # print(os.walk(directory)
 for i in os.walk(directory):
     # print(i[0])
