@@ -3,7 +3,7 @@ from pathlib import Path
 import time
 
 storage_directory = os.path.join(Path.home(), 'Documents')
-directory = "/home/pirate/Documents/Test_folder"
+directory = input('Enter path')
 # print(os.walk(directory)
 for i in os.walk(directory):
     # print(i[0])
