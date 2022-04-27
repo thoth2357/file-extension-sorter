@@ -1,15 +1,26 @@
-import os, shutil
-import time
-from pathlib import Path
-from tkinter import filedialog
-from tkinter import *
+try:
+    import os, shutil
+    import time
+    from pathlib import Path
+    from tkinter import filedialog
+    from tkinter import *
+except Exception:
+    try:
+        os.system('pip install -r requirements.txt')
+        from tkinter import filedialog
+        from tkinter import *
+    except Exception:
+        print('Issue with requirements file')
 
+try:
+    root = Tk()
+    root.withdraw()
+    storage_directory = os.path.join(Path.home(), 'Documents')
+    directory = filedialog.askdirectory()
+except Exception:
+    print('Module tkinter not installed')
+    quit()
 
-root = Tk()
-root.withdraw()
-
-storage_directory = os.path.join(Path.home(), 'Documents')
-directory = filedialog.askdirectory()
 
 for i in os.walk(directory):
     # print(i[0])
