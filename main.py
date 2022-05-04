@@ -70,4 +70,4 @@ for i in os.walk(directory):
                     shutil.move(os.path.join(directory_file, file), extension_folder)
         
 
-            
+print(f'{directory} contents has been sorted into different folders based on their extension type. check documents folder')
