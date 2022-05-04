@@ -4,6 +4,7 @@ try:
     from pathlib import Path
     from tkinter import filedialog
     from tkinter import *
+    from datetime import datetime
 except Exception:
     try:
         os.system('pip install -r requirements.txt')
@@ -37,6 +38,9 @@ for i in os.walk(directory):
                 extension_folder = os.path.join(storage_directory, f'arranged_folder/{extension}')
                 try:
                     os.makedirs(extension_folder)
+                    print(f'Folder {extension_folder} created')
+
+                    shutil.move(os.path.join(directory_file, file), extension_folder)
                 except FileExistsError:
                     if Path(os.path.join(extension_folder, file)).is_file():
                         duplicate_folder = os.path.join(extension_folder, 'Duplicates')
@@ -71,3 +75,7 @@ for i in os.walk(directory):
         
 
 print(f'{directory} contents has been sorted into different folders based on their extension type. check documents folder')
+msg = open(f'{directory}/Script-Has-Been-Here.txt', 'w')
+msg.write(f'Woops! All the content of this folder has been moved and arranged into their respective file extension\n Time_Folder_Was_Modified:{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}')
+msg.close()
+
